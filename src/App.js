@@ -12,7 +12,7 @@ function HealthCheck() {
   const checkHealth = async () => {
     setLoading(true);
     try {
-      const response = await axios.get('/health');
+      const response = await axios.get('https://shl-assignment-r7vz.onrender.com/health');
       setHealthStatus(response.data.status);
     } catch (error) {
       setHealthStatus('unhealthy');
@@ -44,7 +44,7 @@ function Home() {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.post('/recommend', { query });
+      const response = await axios.post('https://shl-assignment-r7vz.onrender.com/recommend', { query });
       navigate('/results', { state: { results: response.data } });
     } catch (error) {
       alert('Error getting recommendations: ' + error.message);
